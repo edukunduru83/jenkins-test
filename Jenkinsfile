@@ -14,7 +14,11 @@ pipeline {
         stage('execute shell script') {
 	    agent { label 'linux' }
             steps {
-                 sh './test.sh'
+	    	script {
+		  chmod 775 ./test.sh
+		  sh './test.sh'
+		}
+		
             }
         }
 	stage('execute batch script') {
