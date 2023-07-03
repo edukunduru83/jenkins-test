@@ -1,5 +1,5 @@
 pipeline {
-    agent { label 'master' }
+    agent none
     parameters {
         string(name: 'sourceserver', defaultValue: 'server1', description: 'source jenkins server')
 		string(name: 'destserver', defaultValue: 'server2', description: 'destination jenkins server')
@@ -12,11 +12,13 @@ pipeline {
             }
         }
         stage('execute shell script') {
+	    agent { label 'linux' }
             steps {
                  sh 'test.sh'
             }
         }
 	stage('execute batch script') {
+	   agent { label 'master' }
            steps {
                 bat 'hello.bat'
            }
