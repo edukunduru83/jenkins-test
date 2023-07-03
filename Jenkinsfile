@@ -13,7 +13,7 @@ pipeline {
         }
         stage('copyjob') {
             steps {
-                sh 'test.sh'
+                 bat 'hello.bat'
             }
         }
     }
