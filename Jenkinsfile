@@ -14,7 +14,7 @@ pipeline {
         stage('execute shell script') {
 	    agent { label 'linux' }
             steps {
-                 sh 'test.sh'
+                 sh './test.sh'
             }
         }
 	stage('execute batch script') {
