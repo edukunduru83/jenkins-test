@@ -11,10 +11,15 @@ pipeline {
                 echo "Copying ${params.jobname} from ${params.sourceserver} to ${params.destserver}"
             }
         }
-        stage('copyjob') {
+        stage('execute shell script') {
             steps {
-                 bat 'hello.bat'
+                 sh 'test.sh'
             }
         }
+	stage('execute batch script') {
+           steps {
+                bat 'hello.bat'
+           }
+	}
     }
 }
